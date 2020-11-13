@@ -1,0 +1,225 @@
+generate_fruit:
+RAND(R25) //generate random number and store in R25 
+RAND(R25) //reason to call RAND(25) twice: random number generator can only generate random number in the next clock cycle(more info can be found in Component/pn_generatre.luc)
+RAND(R26) //generate random number and store in R26
+RAND(R26)
+ADDC(R31, 11, R28)  //can not direcly shift right to some constant bits, we need to store them inside register first
+ADDC(R31, 10, R29)	//R25: row of the fruit, R26: col of the fruit
+SHR(R25, R28, R25) //shift right 11 bits, so there are only 5 bits left. (in total 32 rows, which needs 5 bits to store)
+SHR(R26, R29, R26) // shift right 10 bits, so there are only 6 bits left. (in total 32 cols, which needs 6 bits to store)
+
+initialize_snake:
+ADDC(R31, 16, R0) //initial head row: 16
+ADDC(R31, 32, R1) //initial head col: 32
+ADDC(R31, 0, R23) //R23: current row direction of snake
+ADDC(R31, 1, R24) //R23: current col direction of snake, initial direction is moving right (add col, maitain row)
+ADDC(R31, 1, R22) //R22: current length of snake, initial value is set to 1(only head)
+
+clear_matrix:
+CMPLEC(R28, 0b1111111111, R29) //R28: current adress
+BF(R29, done_clearing, R31)
+ST(R31, 0, R28)//store 0 in the memory to clear all values
+ADDC(R28, 1, R28)
+BEQ(R31, clear_matrix, R31)
+
+done_clearing:
+ADD(R31, R31, R28) //clear R28
+ADD(R31, R31, R29)
+
+update_length_and_check_win:
+ADD(R22, R30, R22) //R30: snake_grow flag. set to 1 when snake ate a fruit in the last cycle
+MOVE(R31, R30)
+CMPEQ(R22, 6, R28)  //if the length of snake is 6, win
+BT(R28, win, R31)
+
+update_head:
+ADD(R0, R31, R28) 
+ADD(R1, R31, R29) //store old value inside R28 and R29
+ADD(R0, R23, R0)  //R23 and R24 indicate the current direction of snake and is set by external button 
+ADD(R1, R24, R1)  //posible value: up:[0, 1], down:[0, -1], left: [-1, 0], right[1, 0]
+		  //That's why we can directly add R0 and R23 to update the head's value
+
+update_body:
+CMPEQC(R22, 1, R27)		//check the snake's length
+BT(R27, update_done, R31)       //if the snake's length is 1, we don't need to update R2 and R3, which is deemed to store the second unit of snake.(the unit after head)
+MOVE(R2, R20)
+MOVE(R3, R21) //store old value inside R20 and R21
+MOVE(R28, R2)
+MOVE(R29, R3)
+MOVE(R20, R28)
+MOVE(R21, R29) //update 'new' old value to R28, R29
+
+CMPEQC(R22, 2, R27)
+BT(R27, update_done, R31)       //similarly, if the snake's length is 2, we don't need to update the third unit.
+MOVE(R4, R20)
+MOVE(R5, R21) //store old value inside R20 and R21
+MOVE(R28, R4)
+MOVE(R29, R5)
+MOVE(R20, R28)
+MOVE(R21, R29) //update 'new' old value to R28, R29
+
+CMPEQC(R22, 3, R27)
+BT(R27, update_done, R31)
+MOVE(R6, R20)
+MOVE(R7, R21) //store old value inside R20 and R21
+MOVE(R28, R6)
+MOVE(R29, R7)
+MOVE(R20, R28)
+MOVE(R21, R29) //update 'new' old value to R28, R29
+
+CMPEQC(R22, 4, R27)
+BT(R27, update_done, R31)
+MOVE(R8, R20)
+MOVE(R9, R21) //store old value inside R20 and R21
+MOVE(R28, R8)
+MOVE(R29, R9)
+MOVE(R20, R28)
+MOVE(R21, R29) //update 'new' old value to R28, R29
+
+
+update_done:
+check_collisions_self:
+CMPEQC(R22, 1, R28)
+BT(R28, check_collisions_self_done, R31)  //if the length is 1, we don't need to check anything, just go to check_collisions_self_done
+CMPEQ(R0, R2, R28)  //check row
+CMPEQ(R1, R3, R29)  //check col
+AND(R28, R29, R28)  //check row and col
+BT(R28, game_over, R31) //if the head pos is the same as this body unit's pos, game over 
+
+CMPEQC(R22, 2, R28)
+BT(R28, check_collisions_self_done, R31)
+CMPEQ(R0, R4, R28)
+CMPEQ(R1, R5, R29)
+AND(R28, R29, R28)
+BT(R28, game_over, R31)
+
+CMPEQC(R22, 3, R28)
+BT(R28, check_collisions_self_done, R31)
+CMPEQ(R0, R6, R28)
+CMPEQ(R1, R7, R29)
+AND(R28, R29, R28)
+BT(R28, game_over, R31)
+
+CMPEQC(R22, 4, R28)
+BT(R28, check_collisions_self_done, R31)
+CMPEQ(R0, R8, R28)
+CMPEQ(R1, R9, R29)
+AND(R28, R29, R28)
+BT(R28, game_over, R31)
+
+check_collisions_self_done:
+check_collisions_wall:
+CMPLTC(R0, 0, R20)  //R20 == 1 when R0 < 0
+CMPLTC(R1, 0, R21)  //R21 == 1 when R1 < 0
+CMPLTC(R0, 32, R28)
+CMPLTC(R1, 64, R29)
+CMPEQC(R28, 0, R28) //invert R28. R28 == 1 when R0>=32
+CMPEQC(R28, 0, R28) //invert R29. R29 == 1 when R1>=64
+OR(R20, R21, R20)
+OR(R28, R29, R28)
+OR(R20, R28, R20) //R20==1 if any of the condition is vialated
+BT(R20, game_over, R31)  
+
+check_fruit:	//check whether the head has reached the fruit
+CMPEQ(R0, R25, R28)  //check row
+CMPEQ(R1, R26, R29)  //check col
+AND(R28, R29, R28)   //check row and col
+MOVE(R28, R30)       //set snake_grow flag(R30)
+BF(R30, sleep, R31) //skip if we didnt hit the fruit. If we has hit the fruit, we need to generate a new fruit
+RAND(R23) //generate new fruit, row
+RAND(R24) //generate new fruit, col
+ADDC(R31, 11, R28)  //can not direcly shift right to some constant bits, we need to store them inside register first
+ADDC(R31, 10, R29)	//R25: row of the fruit, R26: col of the fruit
+SHR(R25, R28, R25) //shift right 11 bits, so there are only 5 bits left. (in total 32 rows, which needs 5 bits to store)
+SHR(R26, R29, R26) // shift right 10 bits, so there are only 6 bits left. (in total 32 cols, which needs 6 bits to store)
+
+print_fruit:
+ADDC(R31, 6, R28)  // row = address[10:6], col = adress[5:0], so we need to shift left the row address
+SHL(R25, R28, R28) //R25: row of snake, shift 6 to left and store in R28
+OR(R28, R24, R28)  //R28: address: row_index[10:6], col_index[5:0]
+ANDC(R25, 0b0000000000010000, R29)  //check if fruit is at the upper half or the lower half, if upperhalf, R29=0
+ADDC(R31, 0b111000, R27) //signal if upper half
+ST(R27, 0, R28)
+ADDC(R31, 0b000111, R27) //signal if lower half
+BF(R29, 1, R31)//if upper half,skip the next instruction (plz read the beta document if you don't know where does the 1 come from)
+ST(R27, 0, R28)
+
+print_snake:
+//head
+CMPLT(R22, 1, R28)
+BT(R28, sleep, R31) //if the snake's length is less than 1, we don't need to print anything. (actually impossible). It make more sense later
+ADDC(R31, 6, R28)
+SHL(R0, R28, R28) //R25: row of snake, shift 6 to left and store in R28
+OR(R28, R1, R28)  //R28: address: row_index[10:6], col_index[5:0]
+ANDC(R0, 0b0000000000010000, R29)  //check the fruit is at the upper half or the lower half, if upperhalf, R29=0
+ADDC(R31, 0b111000, R27) //signal if upper half
+ST(R27, 0, R28)
+ADDC(R31, 0b000111, R27) //signal if lower half
+BF(R29, 1, R31)//if upper half,skip the next instruction
+ST(R27, 0, R28)
+
+CMPLT(R22, 2, R28)
+BT(R28, sleep, R31) //if the snake's length is less than 2, we have done our printing alr. (Don't need to print the second unit, the third unit and so on)
+ADDC(R31, 6, R28)
+SHL(R2, R28, R28) //R25: row of snake, shift 6 to left and store in R28
+OR(R28, R3, R28)  //R28: address: row_index[10:6], col_index[5:0]
+ANDC(R2, 0b0000000000010000, R29)  //check the fruit is at the upper half or the lower half, if upperhalf, R29=0
+ADDC(R31, 0b111000, R27) //signal if upper half
+ST(R27, 0, R28)
+ADDC(R31, 0b000111, R27) //signal if lower half
+BF(R29, 1, R31)//if upper half,skip the next instruction
+ST(R27, 0, R28)
+
+CMPLT(R22, 3, R28)
+BT(R28, sleep, R31) //how long to print
+ADDC(R31, 6, R28)
+SHL(R4, R28, R28) //R25: row of snake, shift 6 to left and store in R28
+OR(R28, R5, R28)  //R28: address: row_index[10:6], col_index[5:0]
+ANDC(R4, 0b0000000000010000, R29)  //check the fruit is at the upper half or the lower half, if upperhalf, R29=0
+ADDC(R31, 0b111000, R27) //signal if upper half
+ST(R27, 0, R28)
+ADDC(R31, 0b000111, R27) //signal if lower half
+BF(R29, 1, R31)//if upper half,skip the next instruction
+ST(R27, 0, R28)
+
+CMPLT(R22, 4, R28)
+BT(R28, sleep, R31) //how long to print
+ADDC(R31, 6, R28)
+SHL(R6, R28, R28) //R25: row of snake, shift 6 to left and store in R28
+OR(R28, R7, R28)  //R28: address: row_index[10:6], col_index[5:0]
+ANDC(R6, 0b0000000000010000, R29)  //check the fruit is at the upper half or the lower half, if upperhalf, R29=0
+ADDC(R31, 0b111000, R27) //signal if upper half
+ST(R27, 0, R28)
+ADDC(R31, 0b000111, R27) //signal if lower half
+BF(R29, 1, R31)//if upper half,skip the next instruction
+ST(R27, 0, R28)
+
+CMPLT(R22, 5, R28)
+BT(R28, sleep, R31) //how long to print
+ADDC(R31, 6, R28)
+SHL(R8, R28, R28) //R25: row of snake, shift 6 to left and store in R28
+OR(R28, R9, R28)  //R28: address: row_index[10:6], col_index[5:0]
+ANDC(R8, 0b0000000000010000, R29)  //check the fruit is at the upper half or the lower half, if upperhalf, R29=0
+ADDC(R31, 0b111000, R27) //signal if upper half
+ST(R27, 0, R28)
+ADDC(R31, 0b000111, R27) //signal if lower half
+BF(R29, 1, R31)//if upper half,skip the next instruction
+ST(R27, 0, R28)
+
+
+//important!!!!!!!!!!!!!!remember to set the slow clock of cpu to size 12
+sleep:  //a while loop, force the cpu to loop to slow down our game circle.
+MOVE(R31, R28) //use R28 as counter to force the cpu to sleep.
+check_condition:
+CMPLTC(R28,0, R27) //if R28 overflow to 0
+BT(R27, new_game_cycle, R31)
+ADDC(R28, 1, R28)
+BNE(R31, check_condition, R31)
+
+new_game_cycle:
+BNE(R31, clear_matrix, R31)
+game_over:
+HALT()
+
+win:
+//print something on the 7 seg or the screen, to be done
