@@ -12,8 +12,8 @@ import json
 OPCODE = {
     "ADD" : "100000",
     "ADDC": "110000",
-    "AND" : "100000",
-    "ANDC": "110000",
+    "AND" : "101000",
+    "ANDC": "111000",
     "OR"  : "101001",
     "SHR" : "101101",
     "ST"  : "011001",
@@ -192,6 +192,10 @@ def generate_instr(sourcefile, lines):
                         Ra, literal, Rc = args[0].strip(), args[1].strip(), args[2].strip()
                         literal = get_literal(literal, count)
                         s = OPCODE[line[0:4]] + REGISTERS[Rc] + REGISTERS[Ra] + literal
+                    elif line[0:4] == "MOVE":
+                        Ra, Rc = args[0].strip(), args[1].strip()
+                        Rb = "11111"
+                        s = OPCODE[line[0:4]] + REGISTERS[Rc] + REGISTERS[Ra] + Rb + "0"*11   
                     elif line[0:4] == "RAND":
                         Ra = args[0].strip()
                         Rc = "11111"
