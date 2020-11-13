@@ -150,11 +150,15 @@ def main():
 
 def get_func_addr(sourcefile, lines):
     count = 0
+    print(lines)
     for line in lines:
-        # print(line)
+        if line == "\n":
+            # print(line, count)
+            continue
         if line[0].isalpha() and line[0].islower():
             FUNC_ADDR[line.strip()[:-1]] = count
-        count += 4
+        else:
+            count += 4
     with open("func_addr.json", "w") as file:
         json.dump(FUNC_ADDR, file)
 
@@ -167,8 +171,8 @@ def generate_instr(sourcefile, lines):
             s = ""
             if line[0:4] == "HALT":
                 break
-            if line in FUNC_ADDR.keys():
-                pass
+            if (line[0].isalpha() and line[0].islower()) or line == "\n":
+                continue
             else:
                 args = get_args(line)
                 if line[0:6] in OPCODE.keys():
@@ -189,9 +193,9 @@ def generate_instr(sourcefile, lines):
                         literal = get_literal(literal, count)
                         s = OPCODE[line[0:4]] + REGISTERS[Rc] + REGISTERS[Ra] + literal
                     elif line[0:4] == "RAND":
-                        Rc = args[0].strip()
-                        Ra = "11111"
-                        s = OPCODE[line[0:4]] + REGISTERS[Rc] + Ra + "0"*16
+                        Ra = args[0].strip()
+                        Rc = "11111"
+                        s = OPCODE[line[0:4]] + Rc + REGISTERS[Ra] + "0"*16
 
                 elif line[0:3] in OPCODE.keys():
                     if line[0:3] == "ADD" or line[0:3] == "SUB" or line[0:3] == "MUL" \
@@ -206,9 +210,9 @@ def generate_instr(sourcefile, lines):
                         literal = get_literal(literal, count)
                         s = OPCODE[line[0:3]] + REGISTERS[Rc] + REGISTERS[Ra] + literal
                     elif line[0:3] == "JMP":
-                        Rc = args[0].strip()
-                        Ra = "11111"
-                        s = OPCODE[line[0:4]] + REGISTERS[Rc] + Ra + "0"*16
+                        Ra = args[0].strip()
+                        Rc = "11111"
+                        s = OPCODE[line[0:4]] + Rc + REGISTERS[Ra] + "0"*16
                     elif line[0:3] == "LDR":
                         literal, Rc = args[0].strip(), args[1].strip()
                         Ra = "11111"
@@ -250,14 +254,14 @@ def generate_instr(sourcefile, lines):
 
                 else:
                     pass
-            if s != "":
-                verify_bsim(s, bsimcheck)  # comment out as you see fit
+                if s != "":
+                    verify_bsim(s, bsimcheck)  # comment out as you see fit
 
-                s = s + ","
-                print(s)
-                file.write(s)
-                file.write("\n")
-            count += 4  # do the increment at the end of an iteration
+                    s = s + ","
+                    print(s)
+                    file.write(s)
+                    file.write("\n")
+                count += 4  # do the increment at the end of an iteration
 
 
 def get_args(s):
@@ -293,6 +297,7 @@ def get_literal(literal, count):
         else:
             literal_return = literal
     elif literal[0].isalpha():
+        print(FUNC_ADDR[literal], count)
         l = (FUNC_ADDR[literal] - count)//4 -1
         # print(literal, FUNC_ADDR[literal], count, l)
         if l >= 0:
