@@ -1,0 +1,20 @@
+module sixteen_bit_adder_ripple_carry  (
+    input x[16],
+    input y[16],
+    input alufn[1],
+    output cout,
+    output s[16]
+  ) {
+  full_adder fullAdder[16];
+  sig xb[16];
+  always {
+    xb = y;
+    if (alufn[0]) xb = ~y;
+    fullAdder.cin[0] = alufn[0];
+    fullAdder.x = x;
+    fullAdder.y = xb;
+    s = fullAdder.s;
+    cout = fullAdder.cout[2];
+    fullAdder.cin[15:1] = fullAdder.cout[14:0];
+  }
+}

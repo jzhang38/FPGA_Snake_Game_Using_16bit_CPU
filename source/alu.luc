@@ -1,0 +1,42 @@
+module alu (
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output out[16],
+    output z,
+    output v,
+    output n
+  ) {
+  boolean_unit booleanUnit;
+  compare_unit compareUnit;
+  shifter shifterUnit;
+  sixteen_bit_adder addUnit;
+  always {
+    booleanUnit.alufn = alufn;
+    compareUnit.alufn = alufn;
+    shifterUnit.alufn = alufn;
+    addUnit.alufn = alufn;
+    
+    booleanUnit.a = a;
+    booleanUnit.b = b;
+    shifterUnit.a = a;
+    shifterUnit.b = b;
+    addUnit.a = a;
+    addUnit.b = b;
+    
+    compareUnit.z = addUnit.z;
+    compareUnit.v = addUnit.v;
+    compareUnit.n = addUnit.n;
+    
+    case(alufn[5:4]){
+      b00: out = addUnit.out;
+      b01: out = booleanUnit.out;
+      b10: out = shifterUnit.out;
+      b11: out = compareUnit.out;
+      default: out = 16b0;
+      }
+    z = addUnit.z;
+    v = addUnit.v;
+    n = addUnit.n;
+  }
+}

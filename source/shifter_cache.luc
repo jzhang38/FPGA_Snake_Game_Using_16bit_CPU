@@ -1,0 +1,31 @@
+module shifter_cache (
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output out[16]
+  ) {
+  sig effective[5];
+  sig shl[16];
+  sig shr[16];
+  sig sra[16];
+  sig rsl[16]; //rotate shift left
+  sig rsr[16]; //rotate shift right
+  always {
+    effective = b[3:0];
+    shl = a << effective;
+    shr = a >> effective;
+    sra = $signed(a) >>> effective;
+    rsl = (a << effective) | (a >> (16 - effective));
+    rsr = (a >> effective) | (a << (16 - effective));
+    case(alufn[2:0]){
+      b000: out = shl;
+      b001: out = shr;
+      b011: out = sra;
+      //rotate shift left
+      b100: out = rsl;
+      //rotate shift right
+      b101: out = rsr;
+      default: out = 16b0;
+    }
+  }
+}

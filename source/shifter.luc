@@ -1,0 +1,33 @@
+module shifter (
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output out[16]
+  ) {
+  shift_left shiftLeft;
+  shift_right shiftRight;
+  shift_right_arithmetic shiftRightArithmetic;
+  always {
+    shiftLeft.a = a;
+    shiftLeft.b = b;
+    shiftRight.a = a;
+    shiftRight.b = b;
+    shiftRightArithmetic.a = a;
+    shiftRightArithmetic.b = b;
+    
+    case(alufn[2:0]){
+      b000: out = shiftLeft.out;
+      b001: out = shiftRight.out;
+      b011: out = shiftRightArithmetic.out;
+      //rotate shift left
+      b100: 
+        shiftRight.b = 16 - b[3:0];
+        out = shiftLeft.out | shiftRight.out;
+      //rotate shift right
+      b101: 
+        shiftLeft.b = 16 - b[3:0];
+        out = shiftLeft.out | shiftRight.out;
+      default: out = 16b0;
+    }
+  }
+}

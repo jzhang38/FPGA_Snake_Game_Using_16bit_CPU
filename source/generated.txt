@@ -1,0 +1,84 @@
+      state.S0:
+        aluUnit.alufn = CASE0[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[0] = b1;
+          if(aluUnit.out == CASE0[0]) state.d = state.S1;
+          else state.d = state.FAIL;
+        }
+      state.S1:
+        aluUnit.alufn = CASE1[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[1] = b1;
+          if(aluUnit.out == CASE1[0]) state.d = state.S2;
+          else state.d = state.FAIL;
+        }
+      state.S2:
+        aluUnit.alufn = CASE2[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[2] = b1;
+          if(aluUnit.out == CASE2[0]) state.d = state.S3;
+          else state.d = state.FAIL;
+        }
+      state.S3:
+        aluUnit.alufn = CASE3[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[3] = b1;
+          if(aluUnit.out == CASE3[0]) state.d = state.S4;
+          else state.d = state.FAIL;
+        }
+      state.S4:
+        aluUnit.alufn = CASE4[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[4] = b1;
+          if(aluUnit.out == CASE4[0]) state.d = state.S5;
+          else state.d = state.FAIL;
+        }
+      state.S5:
+        aluUnit.alufn = CASE5[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[5] = b1;
+          if(aluUnit.out == CASE5[0]) state.d = state.S6;
+          else state.d = state.FAIL;
+        }
+      state.S6:
+        aluUnit.alufn = CASE6[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[6] = b1;
+          if(aluUnit.out == CASE6[0]) state.d = state.S7;
+          else state.d = state.FAIL;
+        }
+      state.S7:
+        aluUnit.alufn = CASE7[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[7] = b1;
+          if(aluUnit.out == CASE7[0]) state.d = state.S8;
+          else state.d = state.FAIL;
+        }
+      state.S8:
+        aluUnit.alufn = CASE8[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[8] = b1;
+          if(aluUnit.out == CASE8[0]) state.d = state.S9;
+          else state.d = state.FAIL;
+        }
+      state.S9:
+        aluUnit.alufn = CASE9[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[9] = b1;
+          if(aluUnit.out == CASE9[0]) state.d = state.S10;
+          else state.d = state.FAIL;
+        }
+      state.S10:
+        aluUnit.alufn = CASE10[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[10] = b1;
+          if(aluUnit.out == CASE10[0]) state.d = state.S11;
+          else state.d = state.FAIL;
+        }
+      state.S11:
+        aluUnit.alufn = CASE11[1][5:0];
+        if (slowClockEdge.out){
+          led_register.d[11] = b1;
+          if(aluUnit.out == CASE11[0]) state.d = state.S12;
+          else state.d = state.FAIL;
+        }

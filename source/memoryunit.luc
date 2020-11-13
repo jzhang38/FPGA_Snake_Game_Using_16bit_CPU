@@ -1,0 +1,32 @@
+module memoryunit #(
+  DEPTH = 256 // entries in the memory
+)
+(
+    input clk,  // clock
+    
+    // for data memory
+    input raddr[10],
+    input waddr[10],
+    input data_memory_input[6],
+    input xwr,
+    output data_memory_output[6],
+            
+    // for instruction memory 
+    input ia[$clog2(DEPTH)+2],
+    input instruction_write_enable,
+    input instruction_towrite[32],
+    output instruction[32]
+
+  ) {
+  const SAMPLE_CODE = {32h7823FFFB, 32h607F0020, 32h643F0020, 32h90410800, 32hC03F0007};
+  simple_dual_ram data_memory(#SIZE(6), #DEPTH(1024), .wclk(clk), .rclk(clk)); // can fit 16 * 16 bits 
+  always {
+    instruction = SAMPLE_CODE[ia[$clog2(DEPTH)+2-1:2]];
+    
+    data_memory.raddr = raddr[9:0]; // memory_unit is word addressable in Lucid, ignore two LSB
+    data_memory.waddr = waddr[9:0];// memory_unit is word addressable in Lucid, ignore two LSB
+    data_memory.write_data = data_memory_input;
+    data_memory.write_en = xwr;
+    data_memory_output = data_memory.read_data;
+  }
+}

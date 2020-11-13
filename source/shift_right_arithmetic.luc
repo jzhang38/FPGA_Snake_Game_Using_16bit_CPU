@@ -1,0 +1,32 @@
+module shift_right_arithmetic (
+    input a[16],
+    input b[16],
+    output out[16]
+  ) {
+  sig x[16];
+  sig y[16];
+  sig z[16];
+  sig s[16];
+  always {
+    x = a;
+    y = x;
+    z = y;
+    s = z;
+    if (b[3]) {
+      x[7:0] = a[15:8];
+      x[15:8] = 8x{a[15]};
+    } else x = a;
+    if (b[2]){
+      y[11:0] = x[15:4];
+      y[15:12] = 4x{x[15]};
+    } else y = x;
+    if(b[1]){
+      z[13:0] = y[15:2];
+      z[15:14] = 2x{y[15]};
+    } else z = y;
+    if(b[0]){
+      s[14:0] = z[15:1];
+      s[15] = z[15];
+    } else s = z;
+    out = s;
+}

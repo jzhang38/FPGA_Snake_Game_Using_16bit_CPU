@@ -1,0 +1,32 @@
+module sixteen_bit_adder (
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output out[16],
+    output z,
+    output v,
+    output n
+  ) {
+  sig s[16];
+  sixteen_bit_adder_ripple_carry adder;
+  always {
+  //our adder is implmented from scratch rather than direcly using a+b or a-b
+  //additional function: mul and mod
+    adder.x = a;
+    adder.y = b;
+    adder.alufn = alufn[0];
+    case(alufn[1:0]){
+      b00: s = adder.s;
+      b01: s = adder.s;
+      //mul
+      b10: s = a * b;
+      //mod
+      b11: s = a-(a/b*b);
+      default: s = a + b;
+  }
+    out = s;
+    n = s[15];
+    z = ~|s;
+    v = (a[15] & (b[15] ^ alufn[0]) & (~s[15])) | ((~a[15]) & (~(b[15] ^ alufn[0])) & s[15]);
+  }
+}
