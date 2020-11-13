@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="16bit_ALU" board="Alchitry Au" language="Lucid" version="3">
+<project name="16bit_CPU" board="Alchitry Au" language="Lucid" version="3">
   <files>
     <component>pipeline.luc</component>
     <src>shift_right.luc</src>
