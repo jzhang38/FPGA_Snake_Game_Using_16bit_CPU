@@ -261,7 +261,7 @@ def generate_instr(sourcefile, lines):
                 if s != "":
                     verify_bsim(s, bsimcheck)  # comment out as you see fit
 
-                    s = s + ","
+                    s = "32b" + s + ","
                     print(s)
                     file.write(s)
                     file.write("\n")
