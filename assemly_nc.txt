@@ -16,11 +16,13 @@ ADDC(R31, 1, R24)
 ADDC(R31, 1, R22) 
 
 clear_matrix:
+MOVE(R31, R28)
+iterate:
 CMPLEC(R28, 0b1111111111, R29) 
 BF(R29, done_clearing, R31)
 ST(R31, 0, R28)
 ADDC(R28, 1, R28)
-BEQ(R31, clear_matrix, R31)
+BEQ(R31, iterate, R31)
 
 done_clearing:
 ADD(R31, R31, R28) 
@@ -113,7 +115,7 @@ CMPLTC(R1, 0, R21)
 CMPLTC(R0, 32, R28)
 CMPLTC(R1, 64, R29)
 CMPEQC(R28, 0, R28) 
-CMPEQC(R28, 0, R28) 
+CMPEQC(R29, 0, R29) 
 OR(R20, R21, R20)
 OR(R28, R29, R28)
 OR(R20, R28, R20) 
@@ -125,8 +127,8 @@ CMPEQ(R1, R26, R29)
 AND(R28, R29, R28)   
 MOVE(R28, R30)       
 BF(R30, sleep, R31) 
-RAND(R23) 
-RAND(R24) 
+RAND(R25) 
+RAND(R26) 
 ADDC(R31, 11, R28)  
 ADDC(R31, 10, R29)	
 SHR(R25, R28, R25) 
@@ -215,7 +217,7 @@ check_condition:
 CMPLTC(R28,0, R27) 
 BT(R27, new_game_cycle, R31)
 ADDC(R28, 1, R28)
-BNE(R31, check_condition, R31)
+BEQ(R31, check_condition, R31)
 
 new_game_cycle:
 BNE(R31, clear_matrix, R31)
@@ -223,3 +225,4 @@ game_over:
 HALT()
 
 win:
+HALT()
