@@ -17,7 +17,7 @@ module control_unit (
     output random_write
   ) {
   
-  const CU_ROM = { b000000001111001100,//this instruction is illegal in beta, but I use it to control the random number generator
+const CU_ROM = { b011100000000000100,
     b000000110001101100,
     b000000110000101100,
     b000000110000001100,
@@ -44,7 +44,7 @@ module control_unit (
     b011100000000000100, 
     b000000011011101100,
     b000000011010101100,
-    b000000001111001100,//this instruction is JMP in beta, but I change it to my special instruction: RAND(generate random number and store in either R25 or R26)
+    b000000011001101100,
     b011100000000000100, 
     b011100000000000100,
     b000000000000101100,
@@ -53,7 +53,7 @@ module control_unit (
     b000010001101000100,
     b000010001101000100,
     b011100000000000100,
-    b010010001101000100,
+    b000000000000001100,  //
     b011100000000000100,
     b000001100000000001,
     b000000100000010110,
@@ -87,7 +87,7 @@ module control_unit (
   always {
   
     irq_sampler.d = irq;
-  
+    random_write = 0;
     pcsel = CU_ROM[opcode][17:15]; 
     wasel = CU_ROM[opcode][14]; 
     asel = CU_ROM[opcode][13]; 
@@ -98,11 +98,7 @@ module control_unit (
     werf= CU_ROM[opcode][2]; 
     moe = CU_ROM[opcode][1]; 
     xwr = CU_ROM[opcode][0]; 
-    random_write = 0;
-    if (opcode == 6b011011){
-      werf = 1;
-      random_write = 1;
-    }
+    
     
     // beq bne handling 
     if (opcode == b011101 && z == 1){//BEQ, branch if z == 1
@@ -111,7 +107,10 @@ module control_unit (
     else if (opcode == b011110 && z == 0){ //BNE, branch if z != 1
       pcsel = b001;
     }
-    
+    if (opcode == 6b011011){
+      werf = 1;
+      random_write = 1;
+    }
     // force xwr = 0 when reset == 1 
     if (reset){
       xwr = 0;

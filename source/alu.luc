@@ -7,36 +7,50 @@ module alu (
     output v,
     output n
   ) {
-  boolean_unit booleanUnit;
-  compare_unit compareUnit;
-  shifter shifterUnit;
-  sixteen_bit_adder addUnit;
+  
+  adder adder_;
+  boolean boolean_;
+  shifter shifter_;
+  compare compare_; 
+  
+  sig xz, xv, xn;
+  
   always {
-    booleanUnit.alufn = alufn;
-    compareUnit.alufn = alufn;
-    shifterUnit.alufn = alufn;
-    addUnit.alufn = alufn;
     
-    booleanUnit.a = a;
-    booleanUnit.b = b;
-    shifterUnit.a = a;
-    shifterUnit.b = b;
-    addUnit.a = a;
-    addUnit.b = b;
+    adder_.alufn = alufn;
+    adder_.a = a;
+    adder_.b = b;
     
-    compareUnit.z = addUnit.z;
-    compareUnit.v = addUnit.v;
-    compareUnit.n = addUnit.n;
+    xz = adder_.z;
+    xv = adder_.v;
+    xn = adder_.n; 
+    
+    z = xz;
+    v = xv;
+    n = xn;
+    
+    compare_.alufn = alufn;
+    compare_.z = xz;
+    compare_.v = xv;
+    compare_.n = xn;
+    
+    boolean_.alufn = alufn;
+    boolean_.a = a;
+    boolean_.b = b;
+    
+    shifter_.alufn = alufn;
+    shifter_.a = a;
+    shifter_.b = b;
     
     case(alufn[5:4]){
-      b00: out = addUnit.out;
-      b01: out = booleanUnit.out;
-      b10: out = shifterUnit.out;
-      b11: out = compareUnit.out;
+      b00 : out = adder_.out;
+      b01 : out = boolean_.s;
+      b10 : out = shifter_.s;
+      b11 : out = compare_.s;
       default: out = 16b0;
-      }
-    z = addUnit.z;
-    v = addUnit.v;
-    n = addUnit.n;
+    }
+      
+    
+    
   }
 }

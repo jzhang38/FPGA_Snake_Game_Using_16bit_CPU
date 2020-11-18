@@ -8,19 +8,11 @@ module regfile (
     input write_address[5],
     input write_data[16],
     input write_enable,
-    input io_button[5]
+    input button[4]    
   ) {
   
   dff registers[32][16](.clk(clk), .rst(rst));
-  button_conditioner buttoncond[4](.clk(clk));
-  edge_detector buttondetector[4](.clk(clk));
-  
   always {
-    
-    buttoncond.in[0] = io_button[0];
-    buttoncond.in[1] = io_button[2];
-    buttoncond.in[3:2] = io_button[4:3];
-    buttondetector.in = buttoncond.out;
     //always read 
     read_data_1 = registers.q[read_address_1];
     read_data_2 = registers.q[read_address_2];
@@ -34,22 +26,22 @@ module regfile (
     if (read_address_1 == b11111) read_data_1 = h0000;
     if (read_address_2 == b11111) read_data_2 = h0000;
     
-    if (buttondetector.out[0]){
+   
+    if (button[0]){
       registers.d[23] = 16hFFFF;
       registers.d[24] = 0;
     }
-    if (buttondetector.out[1]){
+    if (button[1]){
       registers.d[23] = 1;
       registers.d[24] = 0;
     }
-    if (buttondetector.out[2]){
+    if (button[2]){
       registers.d[23] = 0;
       registers.d[24] = 16hFFFF;
     }
-    if (buttondetector.out[3]){
+    if (button[3]){
       registers.d[23] = 0;
       registers.d[24] = 1;
     }
-    
   }
 }

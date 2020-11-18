@@ -1,1 +1,1 @@
-use `python3 compiler.py` to generate the instructions txt file.
+use `python3 assembler.py` to generate the instructions txt file.

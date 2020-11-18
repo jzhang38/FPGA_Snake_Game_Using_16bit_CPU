@@ -24,9 +24,10 @@ module au_top (
   
   sig rst;                  // reset signa
  // control_unit control;   // for test
-  
-  cpu beta(.clk(clk), .io_button(io_button));
-  counter slowclock(#SIZE(13), .clk(clk), .rst(rst));
+  button_conditioner buttoncond[4](.clk(clk));
+  edge_detector buttondetector[4](.clk(clk));
+  beta_cpu beta( .rst(rst), .io_dip(io_dip[2]));
+  counter slowclock(#SIZE(27), .clk(clk), .rst(rst));
   edge_detector slowclockedge(#RISE(1), #FALL(0), .clk(clk));
   
 //ADDC(R31, 7, R1)
@@ -34,27 +35,35 @@ module au_top (
 //ST(R1, 32)
 //LD(R31, 32, R3)
 //BNE(R3, 0, R1)
-  matrix_writer matrixwriter(.clk(clk), .rst(rst));
-  memoryunit memory_unit(#DEPTH(16), .clk(clk)); // can fit 16 * 32 bits 
+
+  memoryunit memory_unit(.clk(clk)); // can fit 16 * 32 bits 
   
+
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
  
   }
-  
+   matrix_writer matrixwriter(.clk(clk), .rst(rst));
   always {
-    reset_cond.in = ~rst_n;   // input raw inverted reset signal
+    buttoncond.in[0] = io_button[0];
+    buttoncond.in[1] = io_button[2];
+    buttoncond.in[3:2] = io_button[4:3];
+    buttondetector.in = buttoncond.out;
+    beta.clk = clk;
+    beta.button = buttondetector.out;
+    
+    reset_cond.in = io_button[1];   // input raw inverted reset signal
     rst = reset_cond.out;     // conditioned reset
     
     led = c{3b0, io_button};  // connect buttons to LEDs
     
     usb_tx = usb_rx;          // loop serial port
     
-    io_led = 3x{{8h00}};    // turn LEDs off
-    io_seg = 8hff;          // turn segments off
-    io_sel = 4hf;           // select no digits
+    io_led = 3x{{h00}};
+    io_seg = 8b0; // connect segments to the driver
+    io_sel = 4b0; // connect digit select to the driver
     
     
     // ****** CU test ******* //
@@ -77,22 +86,20 @@ module au_top (
 
     
       // general setup of beta 
-      slowclockedge.in = slowclock.value[12];
+      slowclockedge.in = slowclock.value[26];
       beta.interrupt = 0;
       beta.slowclk = slowclockedge.out;
-      beta.rst = 0;
-      
+
       // for debug
       io_led[0] = beta.ia[7:0]; //current pc value
       io_led[1] = beta.mem_data_address[7:0]; //output of the ALU 
-      io_led[2] = beta.mem_data_output[7:0]; //output of the rb_data   
+      io_led[2] = beta.debug[7:0]; //output of the rb_data   
       
       //led[7:2] = beta.debug[5:0];
       led[7:2] = memory_unit.instruction[31:26];//current instruction opcode 
       led[2:0] = memory_unit.data_memory_output; //32 bit output from data memory 
     
 
-    
     
       // connect memory unit with beta 
       beta.instruction = memory_unit.instruction;
@@ -101,13 +108,11 @@ module au_top (
       memory_unit.data_memory_input = beta.mem_data_output; 
       memory_unit.xwr = beta.xwr; 
       memory_unit.waddr = beta.mem_data_address[15:0]; 
-  
+      memory_unit.raddr = beta.mem_data_address[15:0]; 
     
       // turn off instruction loading
-      memory_unit.instruction_write_enable = b0;
-      memory_unit.instruction_towrite = 32b0; 
-      
     
+          
       memory_unit.raddr = c{matrixwriter.row_index, matrixwriter.col_index};
       matrixwriter.data = memory_unit.data_memory_output; // change to the output of some RAM unit 
       red0 = matrixwriter.red0;
@@ -120,5 +125,5 @@ module au_top (
       sclk_out = matrixwriter.sclk_out;
       blank = matrixwriter.blank;
       address = matrixwriter.address;
-  }
+      
 }
