@@ -201,7 +201,7 @@ def generate_instr(lines):
                 elif line[0:4] == "RAND":
                     Ra = args[0].strip()
                     Rc = "11111"
-                    s = OPCODE[line[0:4]] + Rc + REGISTERS[Ra] + "0"*16
+                    s = OPCODE[line[0:4]] + REGISTERS[Ra] + Rc + "0"*16
 
             elif line[0:3] in OPCODE.keys():
                 if line[0:3] == "ADD" or line[0:3] == "SUB" or line[0:3] == "MUL" \
