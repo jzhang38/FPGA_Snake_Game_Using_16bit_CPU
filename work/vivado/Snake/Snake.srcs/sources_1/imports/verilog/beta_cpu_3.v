@@ -25,7 +25,7 @@ module beta_cpu_3 (
   wire [32-1:0] M_random_number_generator_num;
   reg [1-1:0] M_random_number_generator_next;
   reg [32-1:0] M_random_number_generator_seed;
-  pn_gen_10 random_number_generator (
+  pn_gen_9 random_number_generator (
     .clk(clk),
     .rst(rst),
     .next(M_random_number_generator_next),
@@ -48,7 +48,7 @@ module beta_cpu_3 (
   reg [1-1:0] M_control_system_z;
   reg [1-1:0] M_control_system_reset;
   reg [6-1:0] M_control_system_opcode;
-  control_unit_11 control_system (
+  control_unit_10 control_system (
     .clk(clk),
     .irq(M_control_system_irq),
     .z(M_control_system_z),
@@ -74,7 +74,7 @@ module beta_cpu_3 (
   reg [6-1:0] M_alu_system_alufn;
   reg [16-1:0] M_alu_system_a;
   reg [16-1:0] M_alu_system_b;
-  alu_12 alu_system (
+  alu_11 alu_system (
     .alufn(M_alu_system_alufn),
     .a(M_alu_system_a),
     .b(M_alu_system_b),
@@ -91,7 +91,7 @@ module beta_cpu_3 (
   reg [5-1:0] M_regfile_system_write_address;
   reg [16-1:0] M_regfile_system_write_data;
   reg [1-1:0] M_regfile_system_write_enable;
-  regfile_13 regfile_system (
+  regfile_12 regfile_system (
     .clk(clk),
     .rst(rst),
     .button(button),

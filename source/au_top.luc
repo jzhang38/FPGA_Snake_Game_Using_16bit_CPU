@@ -7,9 +7,9 @@ module au_top (
     output io_led [3][8],   // LEDs on IO Shield
     output io_seg [8],      // 7-segment LEDs on IO Shield
     output io_sel [4],      // Digit select on IO Shield
-    input io_button [5],    // 5 buttons on IO Shield
     input io_dip [3][8],    // DIP switches on IO Shield
-    
+    input button[4],
+    input reset_button,
     output red0,
     output green0, 
     output blue0,
@@ -25,7 +25,7 @@ module au_top (
   sig rst;                  // reset signa
  // control_unit control;   // for test
   button_conditioner buttoncond[4](.clk(clk));
-  edge_detector buttondetector[4](.clk(clk));
+  edge_detector buttondetector[4](#RISE(1), #FALL(0),.clk(clk));
   beta_cpu beta( .rst(rst), .io_dip(io_dip[2]));
   counter slowclock(#SIZE(27), .clk(clk), .rst(rst));
   edge_detector slowclockedge(#RISE(1), #FALL(0), .clk(clk));
@@ -47,17 +47,15 @@ module au_top (
   }
    matrix_writer matrixwriter(.clk(clk), .rst(rst));
   always {
-    buttoncond.in[0] = io_button[0];
-    buttoncond.in[1] = io_button[2];
-    buttoncond.in[3:2] = io_button[4:3];
+    buttoncond.in = button;
     buttondetector.in = buttoncond.out;
     beta.clk = clk;
     beta.button = buttondetector.out;
     
-    reset_cond.in = io_button[1];   // input raw inverted reset signal
+    reset_cond.in = reset_button;   // input raw inverted reset signal
     rst = reset_cond.out;     // conditioned reset
     
-    led = c{3b0, io_button};  // connect buttons to LEDs
+
     
     usb_tx = usb_rx;          // loop serial port
     

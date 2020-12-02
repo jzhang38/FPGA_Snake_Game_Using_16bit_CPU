@@ -17,6 +17,7 @@ pin usb_rx USB_TX;
 pin usb_tx USB_RX;
 
 
+pin reset_button C31 pulldown;
 // to LED matrix
 pin red0 C40; 
 pin red1 C48;
@@ -86,11 +87,10 @@ pin io_dip[2][5] A37 pulldown;
 pin io_dip[2][6] A39 pulldown;
 pin io_dip[2][7] A40 pulldown;
 
-pin io_button[0] B28 pulldown;
-pin io_button[1] B27 pulldown;
-pin io_button[2] B23 pulldown;
-pin io_button[3] B24 pulldown;
-pin io_button[4] C49 pulldown;
+pin button[0] B28 pulldown;
+pin button[1] B27 pulldown;
+pin button[2] B23 pulldown;
+pin button[3] B24 pulldown;
 
 pin io_sel[0] A9;
 pin io_sel[1] A8;

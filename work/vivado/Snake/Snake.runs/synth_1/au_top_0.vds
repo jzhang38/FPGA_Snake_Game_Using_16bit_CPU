@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Wed Nov 18 01:55:11 2020
-# Process ID: 5844
+# Start of session at: Sat Nov 28 21:47:45 2020
+# Process ID: 8912
 # Current directory: C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.runs/synth_1
 # Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
 # Log file: C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.runs/synth_1/au_top_0.vds
@@ -17,44 +17,44 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tftg256-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15352
+INFO: [Synth 8-7075] Helper process launched with PID 10408
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1012.984 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1014.320 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/au_top_0.v:7]
 INFO: [Synth 8-6157] synthesizing module 'button_conditioner_1' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/button_conditioner_1.v:13]
 	Parameter CLK_FREQ bound to: 26'b10111110101111000010000000 
 	Parameter MIN_DELAY bound to: 5'b10100 
 	Parameter NUM_SYNC bound to: 2'b10 
-INFO: [Synth 8-6157] synthesizing module 'pipeline_9' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pipeline_9.v:11]
+INFO: [Synth 8-6157] synthesizing module 'pipeline_8' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pipeline_8.v:11]
 	Parameter DEPTH bound to: 2'b10 
-INFO: [Synth 8-6155] done synthesizing module 'pipeline_9' (1#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pipeline_9.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_8' (1#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pipeline_8.v:11]
 INFO: [Synth 8-6155] done synthesizing module 'button_conditioner_1' (2#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/button_conditioner_1.v:13]
 INFO: [Synth 8-6157] synthesizing module 'edge_detector_2' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/edge_detector_2.v:12]
 	Parameter RISE bound to: 1'b1 
-	Parameter FALL bound to: 1'b1 
+	Parameter FALL bound to: 1'b0 
 INFO: [Synth 8-6155] done synthesizing module 'edge_detector_2' (3#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/edge_detector_2.v:12]
 INFO: [Synth 8-6157] synthesizing module 'beta_cpu_3' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/beta_cpu_3.v:7]
-INFO: [Synth 8-6157] synthesizing module 'pn_gen_10' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pn_gen_10.v:11]
+INFO: [Synth 8-6157] synthesizing module 'pn_gen_9' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pn_gen_9.v:11]
 	Parameter SEED bound to: 128'b10000100001100100011001101010010001110100110000100111001011001100100001000111011011000100010010101100010010110010010110001100010 
-INFO: [Synth 8-6155] done synthesizing module 'pn_gen_10' (4#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pn_gen_10.v:11]
-INFO: [Synth 8-6157] synthesizing module 'control_unit_11' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/control_unit_11.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'pn_gen_9' (4#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pn_gen_9.v:11]
+INFO: [Synth 8-6157] synthesizing module 'control_unit_10' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/control_unit_10.v:7]
 	Parameter CU_ROM bound to: 1152'b011100000000000100000000110001101100000000110000101100000000110000001100011100000000000100000000101011001100000000101111001100000000101100001100011100000000000100000000111011101100000000111010101100000000111001101100011100000000000100011100000000000100000000100000101100000000100000001100011100000000000100000000010001101100000000010000101100000000010000001100011100000000000100000000001011001100000000001111001100000000001100001100011100000000000100000000011011101100000000011010101100000000011001101100011100000000000100011100000000000100000000000000101100000000000000001100000010001101010110000010001101000100000010001101000100011100000000000100000000000000001100011100000000000100000001100000000001000000100000010110011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100 
-INFO: [Synth 8-6155] done synthesizing module 'control_unit_11' (5#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/control_unit_11.v:7]
-INFO: [Synth 8-6157] synthesizing module 'alu_12' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/alu_12.v:7]
-INFO: [Synth 8-6157] synthesizing module 'adder_15' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/adder_15.v:7]
-INFO: [Synth 8-226] default block is never used [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/adder_15.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'adder_15' (6#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/adder_15.v:7]
-INFO: [Synth 8-6157] synthesizing module 'boolean_16' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/boolean_16.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'boolean_16' (7#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/boolean_16.v:7]
-INFO: [Synth 8-6157] synthesizing module 'shifter_17' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/shifter_17.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'shifter_17' (8#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/shifter_17.v:7]
-INFO: [Synth 8-6157] synthesizing module 'compare_18' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/compare_18.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'compare_18' (9#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/compare_18.v:7]
-INFO: [Synth 8-226] default block is never used [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/alu_12.v:96]
-INFO: [Synth 8-6155] done synthesizing module 'alu_12' (10#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/alu_12.v:7]
-INFO: [Synth 8-6157] synthesizing module 'regfile_13' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/regfile_13.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'regfile_13' (11#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/regfile_13.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit_10' (5#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/control_unit_10.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_11' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/alu_11.v:7]
+INFO: [Synth 8-6157] synthesizing module 'adder_14' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/adder_14.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/adder_14.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'adder_14' (6#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/adder_14.v:7]
+INFO: [Synth 8-6157] synthesizing module 'boolean_15' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/boolean_15.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'boolean_15' (7#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/boolean_15.v:7]
+INFO: [Synth 8-6157] synthesizing module 'shifter_16' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/shifter_16.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'shifter_16' (8#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/shifter_16.v:7]
+INFO: [Synth 8-6157] synthesizing module 'compare_17' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/compare_17.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'compare_17' (9#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/compare_17.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/alu_11.v:96]
+INFO: [Synth 8-6155] done synthesizing module 'alu_11' (10#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/alu_11.v:7]
+INFO: [Synth 8-6157] synthesizing module 'regfile_12' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/regfile_12.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'regfile_12' (11#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/regfile_12.v:7]
 INFO: [Synth 8-226] default block is never used [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/beta_cpu_3.v:143]
 INFO: [Synth 8-226] default block is never used [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/beta_cpu_3.v:155]
 INFO: [Synth 8-226] default block is never used [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/beta_cpu_3.v:172]
@@ -67,39 +67,35 @@ INFO: [Synth 8-6157] synthesizing module 'counter_4' [C:/Users/23945/Documents/A
 	Parameter UP bound to: 1'b1 
 	Parameter MAX_VALUE bound to: 1'b0 
 INFO: [Synth 8-6155] done synthesizing module 'counter_4' (13#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/counter_4.v:14]
-INFO: [Synth 8-6157] synthesizing module 'edge_detector_5' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/edge_detector_5.v:12]
-	Parameter RISE bound to: 1'b1 
-	Parameter FALL bound to: 1'b0 
-INFO: [Synth 8-6155] done synthesizing module 'edge_detector_5' (14#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/edge_detector_5.v:12]
-INFO: [Synth 8-6157] synthesizing module 'memoryunit_6' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/memoryunit_6.v:7]
+INFO: [Synth 8-6157] synthesizing module 'memoryunit_5' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/memoryunit_5.v:7]
 	Parameter SAMPLE_CODE bound to: 9728'b0111011111111111111111101101101101110111111111111111111111111100110000111001110000000000000000010111101111111011111111111111101011010111011111000000000000000000110000111011110100000000000000010111011111111011000000000000010111010111011111010000000001111111100000111001111111111000000000001000001110111111111110000000000010000011100111111111100000000000101101110101101011101000000000001011011100111001111000000000000011000011101111110000000000001010110000111001111100000000000010110110111101011111000000000000000001101111001111110000000000000000011101111111111000000000000001101000001111011100111110000000000010100011100111001110100000000000100100111010000111010000000000001001001110000000110010000000000001111011111101000000000000010110101001101001010011100000000000001010011110011100111010000000000010100110100101001010100000000000110100111011110100000000000000001101001110011100000000000000000011010111101000010000000001000000110101111000000000000000001000001101011010100001000000000000000011010110100000000000000000000000011110111111110000000000001000001010001110011100111010000000000010010011101000011010000000000000100100111000000010011000000000000111101111111100000000000000010011010011100101100000000000001001011110111111110000000000001001101010001110011100111010000000000010010011101000011000100000000000100100111000000010000000000000000111101111111100000000000000101011010011100101100000000000001000011110111111110000000000001011001010001110011100111010000000000010010011101000010111100000000000100100111000000001110000000000000111101111111100000000000001000011010011100101100000000000000111011110111111110000000000001100101010001110011100111010000000000010010011101000010110100000000000100100111000000001100000000000000111101111111100000000000001011011010011100101100000000000000110011110111111110000000000001110001010001110011100111010000000000010010011101000010101100000000000100100111000000001010000000000000111101111111100000000000001110011010011100101100000000000000101011110111111110000000000001111101010001110011100111010000000000010010011101000010100100000000000100100111000000001000000000000000111101111111100000000000010001011010011100101100000000000000100011110111111110000000000010001001010001110011100111010000000000010010011101000010011100000000000100100111000000000110000000000000111101111111100000000000010100011010011100101100000000000000011011110111111110000000000010010101010001110011100111010000000000010010011101000010010100000000000100100111000000000100000000000000111101111111100000000000010111011010011100101100000000000000010011110111111110000000000010100001010001110011100111010000000000010010011101000010001100000000000100100111000000000010000000000000111101111111100000000000011010011010011100101100000000000000001011001110111110000000000000000000111101111111101000000000000000111000011011111110000000000000001011001110111110000000000000000001100001101111111000000000000100011100011101100100000000000010000101001111001110010011000000000001011001110010010111000000000000011000011100111110000000000000110011110111111110000000000000010011101011110010110000000000000101001100111011111000000000000000000011110111111110100000000000000011100001101111111000000000000000101100111011111000000000000000000110000110111111100000000000010001110001110110000000000000001000010100111100111001000100000000000101100111001000011100000000000001100001110011111000000000000011001111011111111000000000000010100110101111001011000000000000010010110011101111100000000000000000001111011111111010000000000000001110000110111111100000000000000010110011101111100000000000000000011000011011111110000000000001000111000111010111000000000000100001010011110011100011110000000000010110011100011101110000000000000110000111001111100000000000001100111101111111100000000000001111111010111100101100000000000001000011001110111110000000000000000000111101111111101000000000000000111000011011111110000000000000001011001110111110000000000000000001100001101111111000000000000100011100011101011000000000000010000101001111001110001101000000000001011001110001100111000000000000011000011100111110000000000000110011110111111110000000000001010101101011110010110000000000000011101100111011111000000000000000000011110111111110100000000000000011100001101111111000000000000000101100111011111000000000000000000110000110111111100000000000010001110001110101010000000000001000010100111100111000101100000000000101100111000101011100000000000001100001110011111000000000000011001111011111111000000000000110101110101111001011000000000000001100110011101111100000000000000000001111011111111010000000000000001110000110111111100000000000000010110011101111100000000000000000011000011011111110000000000001000111000111010100000000000000100001010011110011100010010000000000010110011100010001110000000000000110000111001111100000000000001100111101111111100000000000100000011010111100101100000000000000101011001110111110000000000000000000111101111111101000000000000000111000011011111110000000000000001011001110111110000000000000000001100001101111111000000000000100011100011101001100000000000010000101001111001110000111000000000001011001110000110111000000000000011000011100111110000000000000110011110111111110000000000010010111101011110010110000000000000010001100111011111000000000000000000011110111111110100000000000000011100001101111111000000000000000101100111011111000000000000000000110000110111111100000000000010001110001110100100000000000001000010100111100111000010100000000000101100111000010011100000000000001100001110011111000000000000011001111011111111000000000001010110110101111001011000000000000000110110011101111100000000000000000001111011111111010000000000000001110000110111111100000000000000010110011101111100000000000000000011000011011111110000000000001000111000111010001000000000000100001010011110011100000110000000000010110011100000101110000000000000110000111001111100000000000001100111101111111100000000000110000111010111100101100000000000000010011001110111110000000000000000000111101111111101000000000000000111000011011111110000000000000001011001110111110000000000000000001100001101111111000000000000100011100011101000000000000000010000101001111001110000001000000000001011001110000000111000000000000011000011100111110000000000000110011110111111110000000000011011001101011110010110000000000000000101100111011111000000000000000000011110111111110100000000000000011100001101111111000000000000001001100111011111000000000000000000110000110111111100000000000100001110001110111001000000000001000010100111100111001101000000000000101100111001100111100000000000001100001110011111000000000000011010000011101101011111100000000000100000111001010011111000000000001000001001111101111110000000000010000010010111001111100000000000100000101011001111111000000000001000001010010010111110000000000001111011111110110000000000000110110100110111011000000000000010011000001110110101111110000000000010000011100101001111100000000000100000100011110111111000000000001000001000011100111110000000000010000010101100011111100000000000100000101001000011111000000000000111101111111011000000000000111011010011011101100000000000001000100000111011010111111000000000001000001110010100111110000000000010000001111111011111100000000000100000011101110011111000000000001000001010101111111110000000000010000010100011101111100000000000011110111111101100000000000101101101001101110110000000000000011110000011101101011111100000000000100000111001010011111000000000001000000110111101111110000000000010000001100111001111100000000000100000101010110111111000000000001000001010001100111110000000000001111011111110110000000000011110110100110111011000000000000001101000001110110101111110000000000010000011100101001111100000000000100000010111110111111000000000001000000101011100111110000000000010000010101010111111100000000000100000101000101011111000000000000111101111111011000000000010011011010011011101100000000000000101100000111011010111111000000000001000001110010100111110000000000010000001001111011111100000000000100000010001110011111000000000001000001010101001111110000000000010000010100010001111100000000000011110111111101100000000001011101101001101110110000000000000010010000011101101011111100000000000100000111001010011111000... (message truncated)
-INFO: [Synth 8-6157] synthesizing module 'simple_dual_ram_14' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/simple_dual_ram_14.v:48]
+INFO: [Synth 8-6157] synthesizing module 'simple_dual_ram_13' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/simple_dual_ram_13.v:48]
 	Parameter SIZE bound to: 3'b110 
 	Parameter DEPTH bound to: 11'b10000000000 
-INFO: [Synth 8-6155] done synthesizing module 'simple_dual_ram_14' (15#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/simple_dual_ram_14.v:48]
-INFO: [Synth 8-6155] done synthesizing module 'memoryunit_6' (16#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/memoryunit_6.v:7]
-INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_7' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/reset_conditioner_7.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'simple_dual_ram_13' (14#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/simple_dual_ram_13.v:48]
+INFO: [Synth 8-6155] done synthesizing module 'memoryunit_5' (15#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/memoryunit_5.v:7]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_6' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/reset_conditioner_6.v:11]
 	Parameter STAGES bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_7' (17#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/reset_conditioner_7.v:11]
-INFO: [Synth 8-6157] synthesizing module 'matrix_writer_8' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/matrix_writer_8.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_6' (16#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/reset_conditioner_6.v:11]
+INFO: [Synth 8-6157] synthesizing module 'matrix_writer_7' [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/matrix_writer_7.v:12]
 	Parameter ADDRESS_SIZE bound to: 3'b100 
 	Parameter MATRIX_WIDTH bound to: 7'b1000000 
 	Parameter DIV bound to: 3'b110 
-INFO: [Synth 8-6155] done synthesizing module 'matrix_writer_8' (18#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/matrix_writer_8.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (19#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'matrix_writer_7' (17#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/matrix_writer_7.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (18#1) [C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/au_top_0.v:7]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1012.984 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1014.320 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1012.984 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1014.320 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1012.984 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1014.320 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1012.984 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1014.320 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -110,29 +106,29 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1692.867 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1690.570 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1692.867 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1690.570 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1692.867 ; gain = 679.883
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1690.570 ; gain = 676.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tftg256-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1692.867 ; gain = 679.883
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1690.570 ; gain = 676.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1692.867 ; gain = 679.883
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1690.570 ; gain = 676.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1692.867 ; gain = 679.883
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1690.570 ; gain = 676.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -176,7 +172,7 @@ Detailed RTL Component Info :
 	   2 Input    2 Bit        Muxes := 1     
 	   6 Input    2 Bit        Muxes := 1     
 	   7 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 13    
+	   2 Input    1 Bit        Muxes := 9     
 	   6 Input    1 Bit        Muxes := 1     
 	   7 Input    1 Bit        Muxes := 1     
 	   5 Input    1 Bit        Muxes := 1     
@@ -196,7 +192,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:14 ; elapsed = 00:02:16 . Memory (MB): peak = 1692.867 ; gain = 679.883
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:00 ; elapsed = 00:02:01 . Memory (MB): peak = 1690.570 ; gain = 676.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -206,8 +202,8 @@ ROM: Preliminary Mapping	Report
 +------------+----------------+---------------+----------------+
 |Module Name | RTL Object     | Depth x Width | Implemented As | 
 +------------+----------------+---------------+----------------+
-|regfile_13  | M_registers_q0 | 1024x496      | LUT            | 
-|regfile_13  | M_registers_q0 | 1024x496      | LUT            | 
+|regfile_12  | M_registers_q0 | 1024x496      | LUT            | 
+|regfile_12  | M_registers_q0 | 1024x496      | LUT            | 
 +------------+----------------+---------------+----------------+
 
 
@@ -226,8 +222,133 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:21 ; elapsed = 00:02:23 . Memory (MB): peak = 1692.867 ; gain = 679.883
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:06 ; elapsed = 00:02:07 . Memory (MB): peak = 1690.570 ; gain = 676.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:03:47 ; elapsed = 00:03:48 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping	Report
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|au_top_0    | memory_unit/data_memory/mem_reg | 1 K x 6(READ_FIRST)    | W |   | 1 K x 6(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance memory_unit/data_memory/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:03:54 ; elapsed = 00:03:56 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:03:58 ; elapsed = 00:03:59 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:58 ; elapsed = 00:03:59 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:58 ; elapsed = 00:03:59 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:58 ; elapsed = 00:03:59 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:58 ; elapsed = 00:03:59 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:58 ; elapsed = 00:03:59 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |    34|
+|3     |LUT1     |    15|
+|4     |LUT2     |    79|
+|5     |LUT3     |    89|
+|6     |LUT4     |   116|
+|7     |LUT5     |   198|
+|8     |LUT6     |   913|
+|9     |MUXF7    |   277|
+|10    |MUXF8    |    28|
+|11    |RAMB18E1 |     1|
+|12    |FDRE     |   712|
+|13    |FDSE     |    54|
+|14    |IBUF     |    15|
+|15    |OBUF     |    58|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:58 ; elapsed = 00:03:59 . Memory (MB): peak = 1690.570 ; gain = 676.250
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:03:36 ; elapsed = 00:03:44 . Memory (MB): peak = 1690.570 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:03:58 ; elapsed = 00:04:00 . Memory (MB): peak = 1690.570 ; gain = 676.250
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1690.570 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 340 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1690.570 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+58 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:04:04 ; elapsed = 00:04:05 . Memory (MB): peak = 1690.570 ; gain = 676.250
+INFO: [Common 17-1381] The checkpoint 'C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.runs/synth_1/au_top_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 28 21:51:53 2020...

@@ -84,24 +84,23 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/adder_15.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/alu_12.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/adder_14.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/alu_11.v
   C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/beta_cpu_3.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/boolean_16.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/boolean_15.v
   C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/button_conditioner_1.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/compare_18.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/control_unit_11.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/compare_17.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/control_unit_10.v
   C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/counter_4.v
   C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/edge_detector_2.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/edge_detector_5.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/matrix_writer_8.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/memoryunit_6.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pipeline_9.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pn_gen_10.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/regfile_13.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/reset_conditioner_7.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/shifter_17.v
-  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/simple_dual_ram_14.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/matrix_writer_7.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/memoryunit_5.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pipeline_8.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/pn_gen_9.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/regfile_12.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/reset_conditioner_6.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/shifter_16.v
+  C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/simple_dual_ram_13.v
   C:/Users/23945/Documents/AlchitryProjects/Snake/work/vivado/Snake/Snake.srcs/sources_1/imports/verilog/au_top_0.v
 }
 OPTRACE "Adding files" END { }

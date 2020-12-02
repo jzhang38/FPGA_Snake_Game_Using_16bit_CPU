@@ -13,8 +13,9 @@ module au_top_0 (
     output reg [23:0] io_led,
     output reg [7:0] io_seg,
     output reg [3:0] io_sel,
-    input [4:0] io_button,
     input [23:0] io_dip,
+    input [3:0] button,
+    input reset_button,
     output reg red0,
     output reg green0,
     output reg blue0,
@@ -95,7 +96,7 @@ module au_top_0 (
   
   wire [1-1:0] M_slowclockedge_out;
   reg [1-1:0] M_slowclockedge_in;
-  edge_detector_5 slowclockedge (
+  edge_detector_2 slowclockedge (
     .clk(clk),
     .in(M_slowclockedge_in),
     .out(M_slowclockedge_out)
@@ -108,7 +109,7 @@ module au_top_0 (
   reg [16-1:0] M_memory_unit_data_memory_input;
   reg [1-1:0] M_memory_unit_xwr;
   reg [16-1:0] M_memory_unit_ia;
-  memoryunit_6 memory_unit (
+  memoryunit_5 memory_unit (
     .clk(clk),
     .raddr(M_memory_unit_raddr),
     .waddr(M_memory_unit_waddr),
@@ -121,7 +122,7 @@ module au_top_0 (
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_7 reset_cond (
+  reset_conditioner_6 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -141,7 +142,7 @@ module au_top_0 (
   wire [4-1:0] M_matrixwriter_address;
   wire [16-1:0] M_matrixwriter_debug;
   reg [6-1:0] M_matrixwriter_data;
-  matrix_writer_8 matrixwriter (
+  matrix_writer_7 matrixwriter (
     .clk(clk),
     .rst(rst),
     .data(M_matrixwriter_data),
@@ -161,15 +162,12 @@ module au_top_0 (
   );
   
   always @* begin
-    M_buttoncond_in[0+0-:1] = io_button[0+0-:1];
-    M_buttoncond_in[1+0-:1] = io_button[2+0-:1];
-    M_buttoncond_in[2+1-:2] = io_button[3+1-:2];
+    M_buttoncond_in = button;
     M_buttondetector_in = M_buttoncond_out;
     M_beta_clk = clk;
     M_beta_button = M_buttondetector_out;
-    M_reset_cond_in = io_button[1+0-:1];
+    M_reset_cond_in = reset_button;
     rst = M_reset_cond_out;
-    led = {3'h0, io_button};
     usb_tx = usb_rx;
     io_led = 24'h000000;
     io_seg = 8'h00;

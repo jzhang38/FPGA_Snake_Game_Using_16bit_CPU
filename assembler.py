@@ -134,7 +134,7 @@ B2H = { # not used
 
 
 def main():
-    path = "assembly_newst_and_no_comment.txt"
+    path = "assembly_bug_free_no_comments.txt"
     # update the path as you need
     sourcefile = open(path, "r")
     lines = sourcefile.readlines()
